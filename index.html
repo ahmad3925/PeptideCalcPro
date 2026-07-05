@@ -37,20 +37,238 @@
 <section class="dashboard">
 
     <section class="card calculator-card">
-        <h2>Calculator</h2>
-        <p>Calculator inputs will go here.</p>
-    </section>
+
+    <center><h2>💉 Peptide Calculator</h2>
+    <p>Professional GLP-1 Reconstitution Calculator</p></center>
+
+    <!-- Peptide -->
+    <div class="form-group">
+        <label for="peptide">Peptide</label>
+
+        <select id="peptide">
+            <option>Semaglutide</option>
+            <option>Tirzepatide</option>
+            <option>Retatrutide</option>
+            <option>Cagrilintide</option>
+        </select>
+    </div>
+
+    <!-- Syringe Size -->
+    <div class="form-group">
+
+        <label>Syringe Size</label>
+        <label for="peptide">Select the syringe capacity</label>
+
+        <div class="syringe-buttons">
+
+            
+            <button type="button" class="syringe-btn active">30 IU</button>
+
+            <button type="button" class="syringe-btn">50 IU</button>
+
+            <button type="button" class="syringe-btn">100 IU</button>
+
+            <button type="button" class="syringe-btn">Custom</button>
+
+        </div>
+
+    </div>
+
+    <!-- Vial Strength -->
+    <div class="form-group">
+
+        <label>Vial Strength</label>
+        <label for="peptide">Total peptide in one vial</label>
+
+        <div class="input-group">
+
+            <input
+                type="number"
+                id="vialStrength"
+                value="10">
+
+            <select id="vialUnit">
+                <option>mg</option>
+                <option>mcg</option>
+            </select>
+
+        </div>
+
+    </div>
+
+    <!-- Water -->
+    <div class="form-group">
+
+        <label>Bacteriostatic Water</label>
+        <label for="peptide">Amount used for reconstitution</label>
+
+        <div class="input-group">
+
+            <input
+                type="number"
+                id="waterAmount"
+                value="2">
+
+            <select id="waterUnit">
+                <option>mL</option>
+                <option>IU</option>
+            </select>
+
+        </div>
+
+    </div>
+
+    <!-- Dose -->
+    <div class="form-group">
+
+        <label>Dose Per Injection</label>
+        <label for="peptide">Desired dose for each injection</label>
+
+        <div class="input-group">
+
+            <input
+                type="number"
+                id="dose"
+                value="250">
+
+            <select id="doseUnit">
+                <option>mcg</option>
+                <option>mg</option>
+            </select>
+
+        </div>
+
+    </div>
+<center>
+    <div class="button-group">
+
+        <button type="reset" class="secondary-button">
+            Reset
+        </button>
+    </div></center>
+
+</section>
+
 
     <section class="card result-card">
-        <h2>Results</h2>
-        <p>Your calculation results will appear here.</p>
-    </section>
+
+    <h2>📊 Live Calculation</h2>
+    <p class="card-subtitle">
+        Real-time results
+    </p>
+
+    <div class="primary-result">
+
+        <span>DRAW</span>
+
+        <h1 id="drawIU" style="font-size: 60px;margin-bottom: 15px; margin-top: 10px">-- IU</h1>
+
+        <p id="drawML">-- mL</p>
+
+    </div>
+
+    <div class="summary">
+
+        <div class="summary-row">
+
+            <span>Concentration</span>
+
+            <strong id="concentration">
+                --
+            </strong>
+
+        </div>
+
+        <div class="summary-row">
+
+            <span>Total Doses</span>
+
+            <strong id="totalDoses">
+                --
+            </strong>
+
+        </div>
+
+    </div>
+
+    <div class="syringe-preview">
+
+        <center><h3>💉 Syringe Preview</h3></center><br>
+
+        <div class="scale">
+
+        </div>
+
+    </div>
 
 </section>
 
 <section class="card dose-table">
-    <h2>Common Dose Table</h2>
-    <p>Reference doses will appear here.</p>
+
+<h2>📋 Quick Dose Reference</h2>
+
+<table>
+
+<thead>
+
+<tr>
+
+<th>Dose</th>
+
+<th>IU</th>
+
+<th>mL</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>125 mcg</td>
+
+<td>--</td>
+
+<td>--</td>
+
+</tr>
+
+<tr>
+
+<td>250 mcg</td>
+
+<td>--</td>
+
+<td>--</td>
+
+</tr>
+
+<tr>
+
+<td>500 mcg</td>
+
+<td>--</td>
+
+<td>--</td>
+
+</tr>
+
+<tr>
+
+<td>1000 mcg</td>
+
+<td>--</td>
+
+<td>--</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
 </section>
     </main>
 
