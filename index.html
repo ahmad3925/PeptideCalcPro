@@ -61,16 +61,37 @@
 
         <div class="syringe-buttons">
 
-            
-            <button type="button" class="syringe-btn active">30 IU</button>
+    <button class="syringe-btn active" data-units="30">30 IU</button>
 
-            <button type="button" class="syringe-btn">50 IU</button>
+    <button class="syringe-btn" data-units="50">50 IU</button>
 
-            <button type="button" class="syringe-btn">100 IU</button>
+    <button class="syringe-btn" data-units="100">100 IU</button>
 
-            <button type="button" class="syringe-btn">Custom</button>
+    <button class="syringe-btn" data-units="custom">Custom</button>
+    
+</div>
+<div class="custom-syringe" id="customSyringeField">
 
-        </div>
+    <label for="customSyringe">
+        Custom Syringe Capacity
+    </label>
+
+    <div class="input-group">
+
+        <input
+            type="number"
+            id="customSyringe"
+            step="1"
+            min="1"
+            placeholder="Enter IU">
+
+        <span class="unit-label">
+            IU
+        </span>
+
+    </div>
+
+</div>
 
     </div>
 
@@ -87,7 +108,7 @@
                 id="vialStrength"
                 value="10">
 
-            <select id="vialUnit">
+            <select id="vialStrengthUnit">
                 <option>mg</option>
                 <option>mcg</option>
             </select>
@@ -139,13 +160,7 @@
         </div>
 
     </div>
-<center>
-    <div class="button-group">
 
-        <button type="reset" class="secondary-button">
-            Reset
-        </button>
-    </div></center>
 
 </section>
 
@@ -161,8 +176,7 @@
 
         <span>DRAW</span>
 
-        <h1 id="drawIU" style="font-size: 60px;margin-bottom: 15px; margin-top: 10px">-- IU</h1>
-
+        <h2 id="drawIU">-- IU</h2>
         <p id="drawML">-- mL</p>
 
     </div>
@@ -170,36 +184,43 @@
     <div class="summary">
 
         <div class="summary-row">
-
-            <span>Concentration</span>
-
-            <strong id="concentration">
-                --
-            </strong>
-
-        </div>
+    <span>Concentration</span>
+    <strong id="concentrationValue">--</strong>
+</div>
 
         <div class="summary-row">
-
-            <span>Total Doses</span>
-
-            <strong id="totalDoses">
-                --
-            </strong>
-
-        </div>
+    <span>Total Doses</span>
+    <strong id="totalDoseValue">--</strong>
+</div>
 
     </div>
 
-    <div class="syringe-preview">
+   <div class="syringe-preview">
 
-        <center><h3>💉 Syringe Preview</h3></center><br>
+    <h3>💉 Syringe Preview</h3>
 
-        <div class="scale">
+    <div id="syringeScale" class="syringe-scale">
 
-        </div>
+    <div id="syringeFill" class="syringe-fill"></div>
 
-    </div>
+    <div id="tickContainer"></div>
+
+</div>
+
+    <div id="syringeNumbers" class="syringe-numbers"></div>
+
+    <p id="previewText"></p>
+
+</div>
+    <div class="result-actions">
+    <button class="action-btn save-btn">
+        💾 Save
+    </button>
+
+    <button class="action-btn share-btn">
+        📤 Share
+    </button>
+</div>
 
 </section>
 
