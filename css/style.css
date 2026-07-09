@@ -950,4 +950,16 @@ border-radius:7px;
     font-size:14px;
 
 }
+.share-card {
 
+    position: fixed;
+
+    left: -10000px;
+
+    top: 0;
+
+    width: 600px;
+
+    background: white;
+
+}
