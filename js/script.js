@@ -1,3 +1,4 @@
+let currentResult = {};
 function readInputs() {
 
     const peptide = document.getElementById("peptide").value;
@@ -76,6 +77,7 @@ syringeButtons.forEach(button => {
         updateCalculation();
         console.log("Selected:", button.dataset.units);
 
+
     });
 
 }
@@ -136,6 +138,7 @@ const syringeCapacity =
 
 const percentage =
     (drawIU / syringeCapacity) * 100;
+const markerPosition = Math.min(percentage, 100);
 
     document.getElementById("syringeFill").style.width =
     Math.min(percentage,100) + "%";
@@ -144,15 +147,48 @@ const percentage =
 updateSyringePreview(
     drawIU,
     Number(input.syringeUnits)
+    
+);
+currentResult = {
+
+    input,
+
+    drawIU,
+
+    drawMl,
+
+    concentration,
+
+    totalDoses
+
+};
+
+updateShareCard(
+
+     input,
+
+    drawIU,
+
+    drawMl,
+
+    concentration,
+
+    totalDoses
+
 );
 }
 function updateSyringePreview(drawIU, syringeCapacity){
 
     const numbers =
-        document.getElementById("syringeNumbers");
+    document.getElementById("syringeNumbers"); 
+
+    const marker =
+    document.getElementById("drawMarker");
 
         const tickContainer =
     document.getElementById("tickContainer");
+
+   
 
     tickContainer.innerHTML = "";
 
@@ -183,18 +219,39 @@ function updateSyringePreview(drawIU, syringeCapacity){
     const tick = document.createElement("div");
     tick.className = "tick";
 
-    if(i % 10 === 0){
-        tick.classList.add("major");
-    }
-    else if(i % 5 === 0){
-        tick.classList.add("medium");
-    }
-    else{
-        tick.classList.add("minor");
-    }
+    if(i === syringeCapacity){
+
+    tick.classList.add("major");
+
+}
+else if(i % 10 === 0){
+
+    tick.classList.add("major");
+
+}
+else if(i % 5 === 0){
+
+    tick.classList.add("medium");
+
+}
+else{
+
+    tick.classList.add("minor");
+
+}
 
     // ⭐ THIS WAS MISSING
-    tick.style.left = (i / syringeCapacity) * 100 + "%";
+    const percent = (i / syringeCapacity) * 100;
+
+if (i === 0) {
+    tick.style.left = "1.5px";
+}
+else if (i === syringeCapacity) {
+    tick.style.left = "calc(100% - 1.5px)";
+}
+else {
+    tick.style.left = percent + "%";
+}
 
     tickContainer.appendChild(tick);
 
@@ -221,13 +278,69 @@ if (syringeCapacity % majorStep !== 0) {
 
 }
 
-    document.getElementById("syringeFill").style.width =
-        Math.min(drawIU / syringeCapacity * 100,100) + "%";
+    const percentage =
+    Math.min((drawIU / syringeCapacity) * 100, 100);
+    
+   const overCapacity = drawIU > syringeCapacity;
 
-    document.getElementById("previewText").textContent =
-        "Draw " + drawIU.toFixed(2) + " IU";
+document.getElementById("syringeFill").style.width =
+    percentage + "%";
+
+const markerPosition =
+    Math.min((drawIU / syringeCapacity) * 100, 100);
+
+marker.style.left =
+    markerPosition + "%";
+
+marker.classList.toggle("warning", overCapacity);
+const roundedIU =
+    Math.round(drawIU * 10) / 10;
+
+const fullShots =
+    Math.floor(drawIU / syringeCapacity);
+
+const remainder =
+    drawIU % syringeCapacity;
+
+const markerLabel =
+    document.getElementById("drawMarkerLabel");
+
+
+if (overCapacity) {
+
+    let injections = [];
+
+    for(let i = 0; i < fullShots; i++){
+
+        injections.push(syringeCapacity + " IU");
+
+    }
+
+    if(remainder > 0){
+
+        injections.push(remainder.toFixed(1).replace(".0","") + " IU");
+        
+
+    }
+
+    markerLabel.innerHTML =
+    `⚠ Requires <br>${injections.length} injections<br>` +
+    injections.join("<br>");
+     marker.style.transform = "translateX(-70%)";
 
 }
+else{
+
+    markerLabel.textContent =
+        "Draw to " + roundedIU + " IU";
+        marker.style.transform = "translateX(-50%)";
+
+}
+
+
+}
+
+
 const inputs = document.querySelectorAll("input, select");
 
 inputs.forEach(input => {
@@ -242,4 +355,114 @@ inputs.forEach(input => {
 document.getElementById("customSyringe")
     .addEventListener("input", updateCalculation);
 
+function updateShareCard(input, drawIU, drawMl, concentration, totalDoses){
+
+    document.getElementById("sharePeptide").textContent =
+        input.peptide;
+        document.getElementById("shareSyringe").textContent =
+    input.syringeUnits + " IU";
+    document.getElementById("shareDose").textContent =
+    input.dose + " " + input.doseUnit;
+
+    document.getElementById("shareDraw").textContent =
+    Number(drawIU.toFixed(1)) + " IU"
+
+    document.getElementById("shareVolume").textContent =
+        drawMl.toFixed(2) + " mL";
+
+    document.getElementById("shareConcentration").textContent =
+        concentration.toFixed(2) + " mg/mL";
+
+    document.getElementById("shareTotalDoses").textContent =
+        totalDoses.toFixed(2).replace(/\.00$/,"");
+        //updateShareSyringe(drawIU, syringeCapacity);
+      const today = new Date();
+
+const formattedDate =
+    today.toLocaleDateString("en-GB", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric"
+    }).replace(/ /g, "-");
+
+document.getElementById("shareDate").textContent =
+    formattedDate;
+
+}
+
+
 updateCalculation();
+document
+   .getElementById("saveBtn")
+    .addEventListener("click", saveResult);
+document
+    .getElementById("shareBtn")
+    .addEventListener("click", shareResult);
+function saveResult() {
+
+    const card =
+        document.getElementById("shareCard");
+
+    html2canvas(card, {
+        backgroundColor: "#ffffff",
+        scale: 2
+    }).then(canvas => {
+
+        const link =
+            document.createElement("a");
+
+        link.download =
+            "peptide-calculation.png";
+
+        link.href =
+            canvas.toDataURL("image/png");
+
+        link.click();
+
+    });
+
+}
+async function shareResult() {
+
+    const card =
+        document.getElementById("shareCard");
+
+    const canvas =
+        await html2canvas(card, {
+            backgroundColor: "#ffffff",
+            scale: 2
+        });
+
+    canvas.toBlob(async (blob) => {
+
+        const file = new File(
+            [blob],
+            "peptide-calculation.png",
+            { type: "image/png" }
+        );
+
+        if (
+            navigator.canShare &&
+            navigator.canShare({ files: [file] })
+        ) {
+
+            await navigator.share({
+                title: "Peptide Calculator",
+                text: "Generated using PeptideCalc Pro",
+                files: [file]
+            });
+
+        } else {
+
+            const link =
+                document.createElement("a");
+
+            link.download = "peptide-calculation.png";
+            link.href = URL.createObjectURL(blob);
+            link.click();
+
+        }
+
+    }, "image/png");
+
+}

@@ -193,19 +193,30 @@
     <strong id="totalDoseValue">--</strong>
 </div>
 
-    </div>
-
-   <div class="syringe-preview">
+    </div>   
 
     <h3>💉 Syringe Preview</h3>
 
-    <div id="syringeScale" class="syringe-scale">
+    <div class="syringe-preview">
 
-    <div id="syringeFill" class="syringe-fill"></div>
+    <div class="syringe-scale-wrapper">
 
-    <div id="tickContainer"></div>
+        <div id="syringeScale" class="syringe-scale">
 
-</div>
+            <div id="syringeFill" class="syringe-fill"></div>
+
+            <div id="tickContainer"></div>
+
+        </div>
+
+        <div id="drawMarker" class="draw-marker">
+            <span class="marker-arrow">▲</span>
+ <span id="drawMarkerLabel"></span>
+
+
+        </div>
+
+    </div>
 
     <div id="syringeNumbers" class="syringe-numbers"></div>
 
@@ -213,11 +224,12 @@
 
 </div>
     <div class="result-actions">
-    <button class="action-btn save-btn">
+
+    <button id="saveBtn" class="action-btn save-btn">
         💾 Save
     </button>
 
-    <button class="action-btn share-btn">
+        <button id="shareBtn" class="action-btn share-btn"> 
         📤 Share
     </button>
 </div>
@@ -293,7 +305,68 @@
 </section>
     </main>
 
-    <script src="js/script.js"></script>
+    
+<div id="shareCard" class="share-card">
 
+    <h2>💉 Peptide Calculator</h2>
+
+    <div class="share-peptide" id="sharePeptide"></div>
+
+    <div class="share-section">
+
+    <span>Dose</span>
+
+    <strong id="shareDose"></strong>
+
+</div>
+
+    <div class="share-section">
+        <span>Draw</span>
+        <strong id="shareDraw"></strong>
+    </div>
+
+    <div class="share-section">
+        <span>Volume</span>
+        <strong id="shareVolume"></strong>
+    </div>
+
+    <div class="share-section">
+        <span>Concentration</span>
+        <strong id="shareConcentration"></strong>
+    </div>
+
+    <div class="share-section">
+    <span>Syringe</span>
+    <strong id="shareSyringe"></strong>
+</div>
+
+    <div class="share-section">
+        <span>Total Doses</span>
+        <strong id="shareTotalDoses"></strong>
+    </div>
+    <div id="shareSyringeScale" class="share-syringe-scale">
+    <div id="shareSyringeFill"></div>
+    <div id="shareTickContainer"></div>
+</div>
+
+<div id="shareMarker"></div>
+
+    <div class="share-footer">
+
+    <div>
+        Generated on:
+        <strong id="shareDate"></strong>
+    </div>
+     <br>
+
+    <div class="share-brand">
+        peptidecalcpro.com
+    </div>
+
+</div>
+
+</div>
+<script src="js/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 </body>
 </html>
