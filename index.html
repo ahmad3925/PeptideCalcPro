@@ -103,17 +103,17 @@
 
         <div class="input-group">
 
-            <input
-                type="number"
-                id="vialStrength"
-                value="10">
+    <input
+        id="vialStrength"
+        type="number"
+        value="10"
+    >
 
-            <select id="vialStrengthUnit">
-                <option>mg</option>
-                <option>mcg</option>
-            </select>
+    <div class="unit-label">
+        mg
+    </div>
 
-        </div>
+</div>
 
     </div>
 
@@ -176,7 +176,7 @@
 
         <span>DRAW</span>
 
-        <h2 id="drawIU">-- IU</h2>
+        <h1 id="drawIU">-- IU</h1>
         <p id="drawML">-- mL</p>
 
     </div>
@@ -351,16 +351,40 @@
 
 <div id="shareMarker"></div>
 
+<div class="share-guide">
+
+    <h3>📋 Injection Guide</h3>
+
+    <ul>
+
+        <li id="guideLine1"></li>
+
+        <li id="guideLine2"></li>
+
+        <li id="guideLine3"></li>
+
+        <li id="guideLine4"></li>
+        <li id="guideLine5"></li>
+
+    </ul>
+
+</div>
+
     <div class="share-footer">
 
-    <div>
-        Generated on:
+    <div class="share-generated">
+        Generated on
         <strong id="shareDate"></strong>
     </div>
-     <br>
 
     <div class="share-brand">
-        peptidecalcpro.com
+        <div class="share-brand-title">
+            💉 PeptideCalc Pro
+        </div>
+
+        <div class="share-brand-url">
+            peptidecalcpro.com
+        </div>
     </div>
 
 </div>

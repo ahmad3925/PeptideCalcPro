@@ -1,11 +1,12 @@
 let currentResult = {};
+let previousDoseUnit = "mcg";
+guideLine1.className = "guide-warning";
+
 function readInputs() {
 
     const peptide = document.getElementById("peptide").value;
 
     const vialStrength = Number(document.getElementById("vialStrength").value);
-
-    const vialStrengthUnit = document.getElementById("vialStrengthUnit").value;
 
     const waterAmount = Number(document.getElementById("waterAmount").value);
 
@@ -33,8 +34,6 @@ function readInputs() {
         peptide,
 
         vialStrength,
-
-        vialStrengthUnit,
 
         waterAmount,
 
@@ -86,6 +85,8 @@ function updateCalculation() {
 
     const input = readInputs();
 
+    
+
     // Convert dose to mg if needed
     let doseMg =
         input.doseUnit === "mcg"
@@ -93,10 +94,7 @@ function updateCalculation() {
             : input.dose;
 
     // Convert vial strength to mg if needed
-    let vialMg =
-        input.vialStrengthUnit === "mcg"
-            ? input.vialStrength / 1000
-            : input.vialStrength;
+    const vialMg = input.vialStrength;
 
     // Concentration (mg/mL)
     const concentration =
@@ -355,8 +353,95 @@ inputs.forEach(input => {
 document.getElementById("customSyringe")
     .addEventListener("input", updateCalculation);
 
+    document.getElementById("doseUnit")
+    .addEventListener("change", convertDoseUnit);
+
 function updateShareCard(input, drawIU, drawMl, concentration, totalDoses){
 
+    const roundedIU =
+     Number(drawIU.toFixed(1));
+
+     const roundedML =
+    Number(drawMl.toFixed(2));
+
+    const roundedDoses =
+    Math.round(totalDoses);
+
+    const overCapacity =
+    roundedIU > input.syringeUnits;
+
+
+    let readableDose;
+
+if (input.doseUnit === "mcg") {
+
+    if (input.dose >= 1000) {
+
+        readableDose =
+            Number((input.dose / 1000).toFixed(2)) + " mg";
+
+    } else {
+
+        readableDose =
+            input.dose + " mcg";
+
+    }
+
+} else {
+
+    readableDose =
+        input.dose + " mg";
+
+}
+
+    if (!overCapacity) {
+
+    document.getElementById("guideLine1").textContent =
+        `✓ Draw ${roundedIU} IU on a ${input.syringeUnits} IU syringe`;
+
+    document.getElementById("guideLine2").textContent =
+        `✓ Delivers:  ${readableDose}`;
+
+    document.getElementById("guideLine3").textContent =
+        `✓ Injection volume: ${roundedML} mL`;
+
+    document.getElementById("guideLine4").textContent =
+        `✓ Approximately  ${roundedDoses} doses per vial`;
+
+}
+else {
+const fullShots =
+    Math.floor(roundedIU / input.syringeUnits);
+
+const remainder =
+    Number((roundedIU % input.syringeUnits).toFixed(1));
+
+let parts = [];
+
+for (let i = 0; i < fullShots; i++) {
+    parts.push(input.syringeUnits + " IU");
+}
+
+if (remainder > 0) {
+    parts.push(remainder + " IU");
+}
+
+document.getElementById("guideLine1").textContent =
+    `⚠ Split into ${parts.length} injections`;
+
+document.getElementById("guideLine2").textContent =
+    `• ${parts.join(" + ")}`;
+
+document.getElementById("guideLine3").textContent =
+    `✓ Delivers ${readableDose}`;
+
+document.getElementById("guideLine4").textContent =
+    `✓ Total injection volume: ${roundedML} mL`;
+
+document.getElementById("guideLine5").textContent =
+    `✓ Use a ${input.syringeUnits} IU syringe`;
+
+}
     document.getElementById("sharePeptide").textContent =
         input.peptide;
         document.getElementById("shareSyringe").textContent =
@@ -388,8 +473,7 @@ const formattedDate =
 document.getElementById("shareDate").textContent =
     formattedDate;
 
-}
-
+}   
 
 updateCalculation();
 document
@@ -464,5 +548,35 @@ async function shareResult() {
         }
 
     }, "image/png");
+
+}
+
+function convertDoseUnit(){
+
+    let dose =
+        parseFloat(document.getElementById("dose").value);
+
+    if(isNaN(dose)) return;
+
+    const currentUnit =
+        document.getElementById("doseUnit").value;
+
+    if(previousDoseUnit === "mcg" && currentUnit === "mg"){
+
+        dose = dose / 1000;
+
+    }
+    else if(previousDoseUnit === "mg" && currentUnit === "mcg"){
+
+        dose = dose * 1000;
+
+    }
+
+    document.getElementById("dose").value =
+        Number(dose.toFixed(3));
+
+    previousDoseUnit = currentUnit;
+
+    updateCalculation();
 
 }

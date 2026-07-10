@@ -389,29 +389,48 @@ grid-template-columns:1fr;
 
 .primary-result span{
 
+    display:block;
+
     color:#64748B;
 
-    letter-spacing:2px;
+    letter-spacing:3px;
 
     font-size:13px;
 
     font-weight:700;
 
+    text-transform:uppercase;
+
+    margin-bottom:6px;
+
 }
 
 .primary-result h1{
 
-    margin:15px 0 5px;
+    margin:12px 0 8px;
 
-    font-size:52px;
+    font-size:50px;
+
+     text-shadow:
+        0 3px 14px rgba(37,99,235,.18);
+
+    font-weight:800;
 
     color:#2563EB;
+
+    letter-spacing:-1px;
+
+    line-height:1;
 
 }
 
 .primary-result p{
 
-    font-size:22px;
+    margin-top:10px;
+
+    font-size:24px;
+
+    font-weight:500;
 
     color:#334155;
 
@@ -941,13 +960,54 @@ border-radius:7px;
 
 .share-footer{
 
-    margin-top:28px;
+     margin-top:36px;
+
+    padding-top:24px;
+
+    border-top:1px solid #E2E8F0;
 
     text-align:center;
 
-    color:#64748B;
+}
+.share-generated{
 
     font-size:14px;
+
+    color:#64748B;
+
+}
+
+.share-generated strong{
+
+    color:#334155;
+
+    font-weight:700;
+
+}
+.share-brand{
+
+    margin-top:18px;
+
+}
+.share-brand-title{
+
+    color:#2563EB;
+
+    font-size:18px;
+
+    font-weight:700;
+
+}
+
+.share-brand-url{
+
+    margin-top:4px;
+
+    font-size:13px;
+
+    color:#64748B;
+
+    letter-spacing:.5px;
 
 }
 .share-card {
@@ -961,5 +1021,60 @@ border-radius:7px;
     width: 600px;
 
     background: white;
+
+}
+
+.share-guide{
+
+    margin-top:30px;
+
+    padding-top:22px;
+
+    border-top:1px solid #E2E8F0;
+
+}
+
+.share-guide h3{
+
+    margin-bottom:14px;
+
+    font-size:20px;
+
+    color:#0F172A;
+
+}
+
+.share-guide ul{
+
+    list-style:none;
+
+    padding:0;
+
+}
+
+.share-guide li{
+
+    margin-bottom:10px;
+
+    color:#334155;
+
+    line-height:1.5;
+
+    font-size:16px;
+
+}
+.guide-warning{
+
+    color:#DC2626;
+
+    font-weight:700;
+
+}
+
+.guide-normal{
+
+    color:#334155;
+
+    font-weight:500;
 
 }
