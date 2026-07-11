@@ -128,7 +128,6 @@ document.getElementById("concentrationValue").textContent =
 
 document.getElementById("totalDoseValue").textContent =
     totalDoses.toFixed(2).replace(/\.00$/, "");
-
     
 
 const syringeCapacity =
@@ -580,3 +579,27 @@ function convertDoseUnit(){
     updateCalculation();
 
 }
+const menuBtn =
+    document.getElementById("menuBtn");
+
+const sidebar =
+    document.getElementById("sidebar");
+
+const overlay =
+    document.getElementById("overlay");
+
+menuBtn.addEventListener("click", () => {
+
+    sidebar.classList.add("open");
+
+    overlay.classList.add("show");
+
+});
+
+overlay.addEventListener("click", () => {
+
+    sidebar.classList.remove("open");
+
+    overlay.classList.remove("show");
+
+});

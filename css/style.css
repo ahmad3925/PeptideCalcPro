@@ -381,30 +381,59 @@ grid-template-columns:1fr;
 
 .primary-result{
 
-    text-align:center;
+     text-align:center;
 
-    padding:30px 0;
+    padding:30px 20px;
+
+    margin:20px 0;
+
+    background: linear-gradient(
+    180deg,
+    #EEF5FF 0%,
+    #F8FBFF 60%,
+    #FFFFFF 100%
+);
+
+border:1px solid #D6E7FF;
+
+    border:1px solid #DBEAFE;
+
+    border-radius:18px;
 
 }
 
 .primary-result span{
 
-    display:block;
-
     color:#64748B;
 
-    letter-spacing:3px;
-
-    font-size:13px;
+    font-size:14px;
 
     font-weight:700;
 
-    text-transform:uppercase;
+    letter-spacing:4px;
 
-    margin-bottom:6px;
+    text-transform:uppercase;
+}
+#drawIU{
+
+    font-size:52px;
+
+    font-weight:800;
+
+    color:#2563EB;
+
+    line-height:1.1;
 
 }
+#drawML{
 
+    font-size:24px;
+
+    color:#334155;
+
+    margin-top:10px;
+
+}
 .primary-result h1{
 
     margin:12px 0 8px;
@@ -442,6 +471,86 @@ grid-template-columns:1fr;
 
 }
 
+.summary-cards{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:16px;
+
+    margin:24px 0;
+
+}
+
+.summary-card{
+
+    background:#F8FAFC;
+
+    border:1px solid #E2E8F0;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    text-align:center;
+
+    transition:.25s;
+
+}
+.concentration-card{
+
+    background:#F0FDFA;
+
+    border:1px solid #CCFBF1;
+
+}
+.concentration-card .summary-value{
+
+    color:#0F766E;
+
+}
+.doses-card{
+
+    background:#EEF2FF;
+
+    border:1px solid #C7D2FE;
+
+}
+.doses-card .summary-value{
+
+    color:#3730A3;
+
+}
+.summary-card:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:0 8px 20px rgba(37,99,235,.08);
+
+}
+
+.summary-label{
+
+    font-size:14px;
+
+    color:#64748B;
+
+    margin-bottom:10px;
+
+    font-weight:600;
+
+}
+
+.summary-value{
+
+    font-size:28px;
+
+    font-weight:800;
+
+    color:#2563EB;
+
+}
 .summary-row{
 
     display:flex;
@@ -506,7 +615,19 @@ grid-template-columns:1fr;
 
     z-index: 2;
 }
+.syringe-preview{
 
+    background:#F8FAFC;
+
+    border:1px solid #E2E8F0;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    margin-top:22px;
+
+}
 .syringe-fill{
 
     position:absolute;
@@ -587,6 +708,8 @@ border-radius:7px;
     white-space:nowrap;
 
 }
+
+
 
 #drawMarkerLabel{
 
@@ -744,6 +867,8 @@ border-radius:7px;
     margin-top:100px;
 
 }
+
+
 
 .action-btn{
 
@@ -1076,5 +1201,160 @@ border-radius:7px;
     color:#334155;
 
     font-weight:500;
+
+}
+
+.menu-btn{
+
+
+    position:fixed;
+
+    top:24px;
+
+    left:24px;
+
+    width:46px;
+    height:46px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:white;
+
+    color:#2563EB;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.menu-btn:hover{
+
+    transform:scale(1.05);
+
+}
+
+.sidebar{
+
+    position:fixed;
+
+    top:0;
+
+    left:-300px;
+
+    width:280px;
+
+    height:100vh;
+
+    background:white;
+
+    box-shadow:5px 0 25px rgba(0,0,0,.15);
+
+    transition:left .3s ease;
+
+    z-index:1000;
+
+    overflow-y:auto;
+
+}
+.sidebar.open{
+
+    left:0;
+
+}
+.sidebar-header{
+
+    padding:25px;
+
+    background:#2563EB;
+
+    color:white;
+
+}
+.sidebar nav{
+
+    padding:20px;
+
+}
+
+.sidebar h4{
+
+    margin:22px 0 10px;
+
+    color:#64748B;
+
+    font-size:13px;
+
+    text-transform:uppercase;
+
+}
+
+.sidebar a{
+
+    display:block;
+
+    padding:12px 10px;
+
+    color:#334155;
+
+    text-decoration:none;
+
+    border-radius:10px;
+
+    margin-bottom:6px;
+
+    transition:.2s;
+
+}
+
+.sidebar a:hover{
+
+    background:#EFF6FF;
+
+    color:#2563EB;
+
+}
+.overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.35);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.25s;
+
+    z-index:999;
+
+}
+
+.overlay.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+.header-top{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:relative;
 
 }

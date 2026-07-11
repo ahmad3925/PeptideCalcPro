@@ -20,19 +20,55 @@
 
     <header class="header">
 
-        <div class="container">
+    <div class="header-top">
 
-            <h1>💉 PeptideCalc Pro</h1>
+       <button id="menuBtn" class="menu-btn" aria-label="Open menu">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M4 7H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M4 12H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M4 17H20" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+</button>
 
-            <p>GLP-1 Reconstitution Calculator</p></div>
+        <h1>💉 PeptideCalc Pro</h1>
 
+    </div>
 
-    
+    <p>Smart Peptide Dose Calculator</p>
 
-        </div>
+</header>
+<div id="sidebar" class="sidebar">
 
-    </header>
+    <div class="sidebar-header">
 
+        <h2>💉 PeptideCalc Pro</h2>
+
+    </div>
+
+    <nav>
+
+        <h4>🧪 Health Tools</h4>
+
+        <a href="#">💉 Peptide Calculator</a>
+
+        <h4>💰 Finance Tools</h4>
+
+        <a href="#">💵 FD Calculator</a>
+
+        <a href="#">📊 SIP Calculator</a>
+
+        <a href="#">🏦 EMI Calculator</a>
+
+        <a href="#">📈 CAGR Calculator</a>
+
+        <h4>⚙ Settings</h4>
+
+        <a href="#">🌙 Dark Mode</a>
+
+    </nav>
+
+</div>
+<div id="overlay" class="overlay"></div>
     <main class="container">
 <section class="dashboard">
 
@@ -181,19 +217,37 @@
 
     </div>
 
-    <div class="summary">
+    <div class="summary-cards">
 
-        <div class="summary-row">
-    <span>Concentration</span>
-    <strong id="concentrationValue">--</strong>
-</div>
+    <div class="summary-card concentration-card">
 
-        <div class="summary-row">
-    <span>Total Doses</span>
-    <strong id="totalDoseValue">--</strong>
-</div>
+        <div class="summary-label">
+            💧 Concentration
+        </div>
 
-    </div>   
+        <div
+            id="concentrationValue"
+            class="summary-value">
+            --
+        </div>
+
+    </div>
+
+    <div class="summary-card doses-card">
+
+        <div class="summary-label">
+            💉 Total Doses
+        </div>
+
+        <div
+            id="totalDoseValue"
+            class="summary-value">
+            --
+        </div>
+
+    </div>
+
+</div>  
 
     <h3>💉 Syringe Preview</h3>
 
