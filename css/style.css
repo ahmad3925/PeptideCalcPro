@@ -1071,12 +1071,16 @@ border-radius:7px;
 
     justify-content:space-between;
     align-items:center;
-    padding:18px 0;
+    padding:12px 0;
 
     border-bottom:1px solid #E2E8F0;
 
 }
+.share-section:not(:last-child){
 
+    border-bottom:1px solid rgba(15,23,42,.08);
+
+}
 .share-section strong{
 
     font-size:22px;
@@ -1356,5 +1360,46 @@ border-radius:7px;
     justify-content:center;
 
     position:relative;
+
+}
+.share-group{
+
+    margin:22px 0;
+
+    padding:18px;
+
+    border-radius:18px;
+
+}
+.dose-group{
+
+    background:#EFF6FF;
+
+    border:1px solid #DBEAFE;
+
+}
+.solution-group{
+
+    background:#F0FDFA;
+
+    border:1px solid #CCFBF1;
+
+}
+.guide-group{
+
+    background:#FFFBEB;
+
+    border:1px solid #FDE68A;
+
+}
+.share-group-title{
+
+    font-size:18px;
+
+    font-weight:700;
+
+    margin-bottom:14px;
+
+    color:#0F172A;
 
 }

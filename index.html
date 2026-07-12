@@ -365,14 +365,14 @@
     <h2>💉 Peptide Calculator</h2>
 
     <div class="share-peptide" id="sharePeptide"></div>
-
-    <div class="share-section">
-
-    <span>Dose</span>
-
-    <strong id="shareDose"></strong>
-
-</div>
+    <div class="share-group dose-group">
+       <div class="share-group-title">
+        💉 Dose Information
+       </div>
+       <div class="share-section">
+         <span>Dose</span>
+         <strong id="shareDose"></strong>
+       </div>
 
     <div class="share-section">
         <span>Draw</span>
@@ -383,7 +383,12 @@
         <span>Volume</span>
         <strong id="shareVolume"></strong>
     </div>
+</div>
 
+<div class="share-group solution-group">
+  <div class="share-group-title">
+        🧪 Solution Information
+    </div>
     <div class="share-section">
         <span>Concentration</span>
         <strong id="shareConcentration"></strong>
@@ -392,22 +397,30 @@
     <div class="share-section">
     <span>Syringe</span>
     <strong id="shareSyringe"></strong>
-</div>
+   </div>
 
     <div class="share-section">
         <span>Total Doses</span>
         <strong id="shareTotalDoses"></strong>
     </div>
-    <div id="shareSyringeScale" class="share-syringe-scale">
-    <div id="shareSyringeFill"></div>
-    <div id="shareTickContainer"></div>
+
+      <div id="shareSyringeScale" class="share-syringe-scale">
+         <div id="shareSyringeFill"></div>
+         <div id="shareTickContainer"></div>
+     </div>
+ <div id="shareMarker"></div>
 </div>
+
+
+  
 
 <div id="shareMarker"></div>
 
+<div class="share-group guide-group">
+     <div class="share-group-title">
+        📋 Injection Guide
+    </div>
 <div class="share-guide">
-
-    <h3>📋 Injection Guide</h3>
 
     <ul>
 
@@ -423,7 +436,7 @@
     </ul>
 
 </div>
-
+</div>
     <div class="share-footer">
 
     <div class="share-generated">
