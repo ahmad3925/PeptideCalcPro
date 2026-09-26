@@ -1403,3 +1403,234 @@ border-radius:7px;
     color:#0F172A;
 
 }
+
+/* ==============================
+   DARK MODE OVERRIDES
+   ============================== */
+
+html.dark-mode body{
+    background:#020617;
+    color:#E2E8F0;
+}
+
+html.dark-mode .header h1{ color:#F8FAFC; }
+html.dark-mode .header p{ color:#94A3B8; }
+
+html.dark-mode .card{
+    background:#0F172A;
+    color:#E2E8F0;
+    border:1px solid #1E293B;
+    box-shadow:0 12px 30px rgba(0,0,0,.28);
+}
+
+html.dark-mode .card h2{ color:#F8FAFC; }
+html.dark-mode .card-subtitle{ color:#94A3B8; }
+
+html.dark-mode .form-group label{ color:#E2E8F0; }
+html.dark-mode .form-group small{ color:#94A3B8; }
+
+html.dark-mode .form-group input,
+html.dark-mode .form-group select,
+html.dark-mode .input-group input,
+html.dark-mode .input-group select{
+    background:#111827;
+    color:#F8FAFC;
+    border-color:#334155;
+}
+
+html.dark-mode .form-group input::placeholder,
+html.dark-mode .input-group input::placeholder{
+    color:#64748B;
+}
+
+html.dark-mode .form-group input:focus,
+html.dark-mode .form-group select:focus,
+html.dark-mode .input-group input:focus,
+html.dark-mode .input-group select:focus{
+    border-color:#3B82F6;
+    box-shadow:0 0 0 4px rgba(59,130,246,.16);
+}
+
+html.dark-mode .syringe-btn{
+    background:#1E293B;
+    color:#E2E8F0;
+}
+
+html.dark-mode .syringe-btn:hover{ background:#334155; }
+
+html.dark-mode .syringe-btn.active{
+    background:linear-gradient(135deg,#2563EB,#3B82F6);
+    color:#fff;
+}
+
+html.dark-mode .secondary-button{
+    background:#1E293B;
+    color:#E2E8F0;
+}
+
+html.dark-mode .secondary-button:hover{ background:#334155; }
+
+html.dark-mode .primary-result{
+    background:linear-gradient(
+        180deg,
+        #172554 0%,
+        #111C35 60%,
+        #0F172A 100%
+    );
+    border-color:#1D4ED8;
+}
+
+html.dark-mode .primary-result span{ color:#94A3B8; }
+html.dark-mode #drawML,
+html.dark-mode .primary-result p{ color:#CBD5E1; }
+
+html.dark-mode .summary-card{
+    background:#111827;
+    border-color:#334155;
+}
+
+html.dark-mode .concentration-card{
+    background:#062E2A;
+    border-color:#115E59;
+}
+
+html.dark-mode .concentration-card .summary-value{ color:#5EEAD4; }
+
+html.dark-mode .doses-card{
+    background:#1E1B4B;
+    border-color:#4338CA;
+}
+
+html.dark-mode .doses-card .summary-value{ color:#A5B4FC; }
+html.dark-mode .summary-label{ color:#94A3B8; }
+html.dark-mode .summary-value{ color:#60A5FA; }
+html.dark-mode .summary-row{ border-top-color:#334155; }
+
+html.dark-mode .syringe-preview{
+    background:#111827;
+    border-color:#334155;
+}
+
+html.dark-mode .syringe-scale{
+    background:#0F172A;
+    border-color:#475569;
+    box-shadow:inset 0 2px 6px rgba(0,0,0,.35);
+}
+
+html.dark-mode .syringe-numbers{ color:#94A3B8; }
+html.dark-mode .tick{ background:#94A3B8; }
+html.dark-mode .tick.minor{ background:#64748B; }
+html.dark-mode .tick.medium{ background:#94A3B8; }
+html.dark-mode .tick.major{ background:#E2E8F0; }
+html.dark-mode #previewText{ color:#60A5FA; }
+
+html.dark-mode .unit-label{
+    background:#111827;
+    border-color:#334155;
+    color:#CBD5E1;
+}
+
+html.dark-mode .dose-table th{
+    background:#1E293B;
+    color:#F8FAFC;
+}
+
+html.dark-mode .dose-table td{
+    color:#CBD5E1;
+    border-top-color:#334155;
+}
+
+html.dark-mode .menu-btn{
+    background:#0F172A;
+    color:#60A5FA;
+    box-shadow:0 8px 20px rgba(0,0,0,.25);
+    border:1px solid #1E293B;
+}
+
+html.dark-mode .sidebar{
+    background:#0F172A;
+    box-shadow:5px 0 30px rgba(0,0,0,.45);
+}
+
+html.dark-mode .sidebar h4{ color:#94A3B8; }
+html.dark-mode .sidebar a{ color:#CBD5E1; }
+
+html.dark-mode .sidebar a:hover{
+    background:#172554;
+    color:#60A5FA;
+}
+
+html.dark-mode .overlay{ background:rgba(0,0,0,.6); }
+
+/* Keep generated/share images light and consistent. */
+html.dark-mode .share-card{
+    background:#fff;
+    color:#0F172A;
+}
+
+html.dark-mode .share-card h2,
+html.dark-mode .share-group-title{ color:#0F172A; }
+
+html.dark-mode .share-section{ border-bottom-color:#E2E8F0; }
+html.dark-mode .share-footer{ border-top-color:#E2E8F0; }
+html.dark-mode .share-generated{ color:#64748B; }
+html.dark-mode .share-generated strong{ color:#334155; }
+html.dark-mode .share-guide h3{ color:#0F172A; }
+html.dark-mode .share-guide li{ color:#334155; }
+
+html.dark-mode .dose-group{
+    background:#EFF6FF;
+    border-color:#DBEAFE;
+}
+
+html.dark-mode .solution-group{
+    background:#F0FDFA;
+    border-color:#CCFBF1;
+}
+
+html.dark-mode .guide-group{
+    background:#FFFBEB;
+    border-color:#FDE68A;
+}
+
+/* ==============================
+   THEME TOGGLE
+   ============================== */
+
+.theme-toggle{
+    position:fixed;
+    top:24px;
+    right:24px;
+    width:46px;
+    height:46px;
+    border:1px solid rgba(255,255,255,.16);
+    border-radius:12px;
+    background:#FFFFFF;
+    color:#0F172A;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:20px;
+    cursor:pointer;
+    z-index:1100;
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+    transition:all .25s ease;
+}
+
+.theme-toggle:hover{ transform:scale(1.05); }
+
+html.dark-mode .theme-toggle{
+    background:#0F172A;
+    color:#F8FAFC;
+    border-color:#334155;
+    box-shadow:0 8px 20px rgba(0,0,0,.35);
+}
+
+@media(max-width:600px){
+    .theme-toggle{
+        top:18px;
+        right:18px;
+        width:42px;
+        height:42px;
+    }
+}

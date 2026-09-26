@@ -87,6 +87,29 @@ function updateCalculation() {
 
     
 
+    // Prevent calculations while a required input is temporarily empty
+    // (for example, when the user selects all text in Vial Strength and deletes it).
+    // Without this guard, an empty vial strength becomes 0, which can produce
+    // Infinity and cause updateSyringePreview() to loop indefinitely.
+    const syringeCapacity = Number(input.syringeUnits);
+
+    if (
+        !Number.isFinite(input.vialStrength) || input.vialStrength <= 0 ||
+        !Number.isFinite(input.waterAmount) || input.waterAmount <= 0 ||
+        !Number.isFinite(input.dose) || input.dose <= 0 ||
+        !Number.isFinite(syringeCapacity) || syringeCapacity <= 0
+    ) {
+        document.getElementById("drawIU").textContent = "--";
+        document.getElementById("drawML").textContent = "--";
+        document.getElementById("concentrationValue").textContent = "--";
+        document.getElementById("totalDoseValue").textContent = "--";
+
+        document.getElementById("syringeFill").style.width = "0%";
+
+        updateSyringePreview(0, syringeCapacity);
+        return;
+    }
+
     // Convert dose to mg if needed
     let doseMg =
         input.doseUnit === "mcg"
@@ -129,9 +152,6 @@ document.getElementById("concentrationValue").textContent =
 document.getElementById("totalDoseValue").textContent =
     totalDoses.toFixed(2).replace(/\.00$/, "");
     
-
-const syringeCapacity =
-    Number(input.syringeUnits);
 
 const percentage =
     (drawIU / syringeCapacity) * 100;
@@ -603,3 +623,68 @@ overlay.addEventListener("click", () => {
     overlay.classList.remove("show");
 
 });
+
+
+// ===============================
+// SIDEBAR DARK MODE
+// ===============================
+
+const darkModeToggle = document.getElementById("darkModeToggle");
+
+function applyTheme(theme) {
+
+    document.documentElement.classList.toggle(
+        "dark-mode",
+        theme === "dark"
+    );
+
+    if (darkModeToggle) {
+        darkModeToggle.textContent =
+            theme === "dark"
+                ? "☀️ Light Mode"
+                : "🌙 Dark Mode";
+    }
+}
+
+// Load saved theme
+const savedTheme = localStorage.getItem("peptidecalc-theme");
+
+if (savedTheme === "dark" || savedTheme === "light") {
+
+    applyTheme(savedTheme);
+
+} else if (
+    window.matchMedia &&
+    window.matchMedia("(prefers-color-scheme: dark)").matches
+) {
+
+    applyTheme("dark");
+
+} else {
+
+    applyTheme("light");
+
+}
+
+
+// Toggle theme when sidebar item is clicked
+if (darkModeToggle) {
+
+    darkModeToggle.addEventListener("click", () => {
+
+        const isDark =
+            document.documentElement.classList.contains("dark-mode");
+
+        const newTheme =
+            isDark ? "light" : "dark";
+
+        localStorage.setItem(
+            "peptidecalc-theme",
+            newTheme
+        );
+
+        applyTheme(newTheme);
+
+    });
+
+}
