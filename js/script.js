@@ -81,11 +81,59 @@ syringeButtons.forEach(button => {
 
 }
 );
+
+function updateDoseReferenceTable(vialMg, waterAmount) {
+
+    const rows = document.querySelectorAll(".dose-table tbody tr");
+
+    if (!rows.length) return;
+
+    const referenceDoses = [125, 250, 500, 1000];
+
+    const validInputs =
+        Number.isFinite(vialMg) &&
+        vialMg > 0 &&
+        Number.isFinite(waterAmount) &&
+        waterAmount > 0;
+
+    rows.forEach((row, index) => {
+
+        const cells = row.querySelectorAll("td");
+        const doseMcg = referenceDoses[index];
+
+        if (!cells.length || doseMcg === undefined) return;
+
+        cells[0].textContent = doseMcg + " mcg";
+
+        if (!validInputs) {
+            cells[1].textContent = "--";
+            cells[2].textContent = "--";
+            return;
+        }
+
+        const concentration = vialMg / waterAmount;
+        const doseMg = doseMcg / 1000;
+        const drawMl = doseMg / concentration;
+        const drawIU = drawMl * 100;
+
+        cells[1].textContent =
+            Number(drawIU.toFixed(2)) + " IU";
+
+        cells[2].textContent =
+            Number(drawMl.toFixed(3)) + " mL";
+    });
+}
+
 function updateCalculation() {
 
     const input = readInputs();
 
-    
+    // Update the Quick Dose Reference table using the current vial
+    // strength and reconstitution volume.
+    updateDoseReferenceTable(
+        input.vialStrength,
+        input.waterAmount
+    );
 
     // Prevent calculations while a required input is temporarily empty
     // (for example, when the user selects all text in Vial Strength and deletes it).
@@ -624,12 +672,27 @@ overlay.addEventListener("click", () => {
 
 });
 
-
 // ===============================
-// SIDEBAR DARK MODE
+// SIDEBAR DARK / LIGHT MODE
 // ===============================
 
-const darkModeToggle = document.getElementById("darkModeToggle");
+const darkModeToggle =
+    document.getElementById("darkModeToggle");
+
+function getPreferredTheme() {
+
+    const savedTheme =
+        localStorage.getItem("peptidecalc-theme");
+
+    if (savedTheme === "dark" || savedTheme === "light") {
+        return savedTheme;
+    }
+
+    return window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+        ? "dark"
+        : "light";
+}
 
 function applyTheme(theme) {
 
@@ -639,38 +702,22 @@ function applyTheme(theme) {
     );
 
     if (darkModeToggle) {
+
         darkModeToggle.textContent =
             theme === "dark"
                 ? "☀️ Light Mode"
                 : "🌙 Dark Mode";
+
     }
 }
 
-// Load saved theme
-const savedTheme = localStorage.getItem("peptidecalc-theme");
+applyTheme(getPreferredTheme());
 
-if (savedTheme === "dark" || savedTheme === "light") {
-
-    applyTheme(savedTheme);
-
-} else if (
-    window.matchMedia &&
-    window.matchMedia("(prefers-color-scheme: dark)").matches
-) {
-
-    applyTheme("dark");
-
-} else {
-
-    applyTheme("light");
-
-}
-
-
-// Toggle theme when sidebar item is clicked
 if (darkModeToggle) {
 
-    darkModeToggle.addEventListener("click", () => {
+    darkModeToggle.addEventListener("click", (event) => {
+
+        event.preventDefault();
 
         const isDark =
             document.documentElement.classList.contains("dark-mode");
