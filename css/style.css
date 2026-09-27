@@ -1713,5 +1713,221 @@ html.dark-mode .theme-toggle{
     .step-description{
         margin-left:46px;
     }
+}
+/* ========================================
+   MOBILE RESPONSIVE - COMPACT LAYOUT
+======================================== */
+
+@media (max-width: 600px) {
+
+    /* ==============================
+       PAGE / HEADER
+    ============================== */
+
+    .container {
+        width: 94%;
+    }
+
+    .header {
+        padding: 38px 0 32px;
+    }
+
+    .header h1 {
+        font-size: 36px;
+        line-height: 1.15;
+    }
+
+    .header p {
+        font-size: 17px;
+        margin-top: 8px;
+    }
+
+
+    /* ==============================
+       ALL CARDS
+    ============================== */
+
+    .card {
+        padding: 20px 18px;
+        border-radius: 16px;
+    }
+
+
+    /* ==============================
+       CALCULATOR CARD
+    ============================== */
+
+    .card h2 {
+        font-size: 26px;
+    }
+
+    .step-form-group {
+        margin-bottom: 22px;
+    }
+
+    .step-number {
+        width: 36px;
+        height: 36px;
+        font-size: 16px;
+    }
+
+    .step-title {
+        font-size: 18px;
+    }
+
+    .step-description {
+        margin-left: 46px;
+        margin-bottom: 9px;
+        font-size: 14px;
+    }
+
+    .syringe-buttons {
+        gap: 8px;
+    }
+
+    .syringe-btn {
+        height: 50px;
+        font-size: 14px;
+    }
+
+    .input-group {
+        grid-template-columns: 2fr 90px;
+        gap: 8px;
+    }
+
+    .input-group input,
+    .input-group select {
+        height: 52px;
+        padding: 0 14px;
+        font-size: 16px;
+    }
+
+
+    /* ==============================
+       LIVE CALCULATION
+    ============================== */
+
+    .result-card h2 {
+        font-size: 25px;
+        margin-bottom: 8px;
+    }
+
+    .card-subtitle {
+        font-size: 14px;
+    }
+
+    /* Main DRAW result */
+
+    .primary-result {
+        padding: 24px 14px;
+        margin: 16px 0;
+        border-radius: 16px;
+    }
+
+    .primary-result span {
+        font-size: 12px;
+        letter-spacing: 3px;
+    }
+
+    #drawIU {
+        font-size: 42px;
+    }
+
+    #drawML {
+        font-size: 20px;
+    }
+
+
+    /* ==============================
+       SUMMARY CARDS
+    ============================== */
+
+    .summary-cards {
+        gap: 10px;
+    }
+
+    .summary-card {
+        padding: 14px 10px;
+        border-radius: 14px;
+    }
+
+    .summary-label {
+        font-size: 13px;
+    }
+
+    .summary-value {
+        font-size: 24px;
+    }
+
+
+    /* ==============================
+       SYRINGE PREVIEW
+    ============================== */
+
+    .result-card h3 {
+        font-size: 18px;
+        margin-top: 20px;
+        margin-bottom: 12px;
+    }
+
+    .syringe-preview {
+        padding: 18px 12px;
+        border-radius: 14px;
+    }
+
+    .syringe-scale-wrapper {
+        width: 100%;
+    }
+
+    .syringe-numbers {
+        font-size: 11px;
+    }
+
+    #previewText {
+        font-size: 13px;
+        margin-top: 8px;
+    }
+
+
+    /* ==============================
+       SAVE / SHARE
+    ============================== */
+
+    .result-actions {
+        gap: 10px;
+        margin-top: 18px;
+    }
+
+    .action-btn {
+        height: 48px;
+        font-size: 14px;
+        border-radius: 12px;
+    }
+
+
+    /* ==============================
+       QUICK DOSE REFERENCE
+    ============================== */
+
+    .dose-table {
+        margin-top: 18px;
+        margin-bottom: 40px;
+        padding: 20px 16px;
+    }
+
+    .dose-table h2 {
+        font-size: 22px;
+        margin-bottom: 14px;
+    }
+
+    .dose-table table {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .dose-table th,
+    .dose-table td {
+        padding: 10px 8px;
+    }
 
 }
