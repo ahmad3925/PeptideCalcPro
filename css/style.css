@@ -24,7 +24,7 @@ body{
 
 .container{
 
-    width:min(1320px,92%);
+    width:min(1320px,90%);
 
     margin:auto;
 
@@ -1721,7 +1721,7 @@ html.dark-mode .theme-toggle{
 @media (max-width: 600px) {
 
     .container {
-        width: 95%;
+        width: 90%;
     }
 
     /* HEADER */
@@ -1742,14 +1742,14 @@ html.dark-mode .theme-toggle{
 
     /* ALL CARDS */
     .card {
-        padding: 18px 16px;
+        padding: 14px 12px;
         border-radius: 15px;
     }
 
 
     /* CALCULATOR */
     .card h2 {
-        font-size: 24px;
+        font-size: 20px;
         margin-bottom: 12px;
     }
 
