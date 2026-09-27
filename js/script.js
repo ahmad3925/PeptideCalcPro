@@ -10,7 +10,6 @@ function readInputs() {
 
     const waterAmount = Number(document.getElementById("waterAmount").value);
 
-    const waterUnit = document.getElementById("waterUnit").value;
 
     const dose = Number(document.getElementById("dose").value);
 
@@ -36,8 +35,6 @@ function readInputs() {
         vialStrength,
 
         waterAmount,
-
-        waterUnit,
 
         dose,
 
