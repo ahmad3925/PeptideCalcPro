@@ -24,7 +24,7 @@ body{
 
 .container{
 
-    width:min(1320px,90%);
+    width:min(1320px,88%);
 
     margin:auto;
 
@@ -1718,10 +1718,10 @@ html.dark-mode .theme-toggle{
    MOBILE RESPONSIVE - EXTRA COMPACT
 ======================================== */
 
-@media (max-width: 600px) {
+@media (max-width: 620px) {
 
     .container {
-        width: 90%;
+        width: 92%;
     }
 
     /* HEADER */
@@ -1803,15 +1803,15 @@ html.dark-mode .theme-toggle{
 
     /* LIVE CALCULATION */
     .result-card h2 {
-        font-size: 23px;
+        font-size: 20px;
     }
 
     .card-subtitle {
-        font-size: 13px;
+        font-size: 12px;
     }
 
     .primary-result {
-        padding: 20px 12px;
+        padding: 18px 12px;
         margin: 13px 0;
         border-radius: 14px;
     }
@@ -1822,7 +1822,7 @@ html.dark-mode .theme-toggle{
     }
 
     #drawIU {
-        font-size: 38px;
+        font-size: 36px;
     }
 
     #drawML {
@@ -1892,7 +1892,7 @@ html.dark-mode .theme-toggle{
     }
 
     .dose-table h2 {
-        font-size: 20px;
+        font-size: 18px;
         margin-bottom: 11px;
     }
 
