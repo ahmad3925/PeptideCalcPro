@@ -1592,6 +1592,22 @@ html.dark-mode .guide-group{
     background:#FFFBEB;
     border-color:#FDE68A;
 }
+/* ========================================
+   DARK MODE - NUMBERED INPUT STEPS
+======================================== */
+
+html.dark-mode .step-title{
+    color:#F8FAFC;
+}
+
+html.dark-mode .step-description{
+    color:#94A3B8;
+}
+
+html.dark-mode .step-number{
+    background:#3157D5;
+    color:#FFFFFF;
+}
 
 /* ==============================
    THEME TOGGLE
@@ -1633,4 +1649,69 @@ html.dark-mode .theme-toggle{
         width:42px;
         height:42px;
     }
+}
+/* ========================================
+   NUMBERED INPUT STEPS
+======================================== */
+
+.step-form-group{
+    margin-bottom:30px;
+}
+
+.step-heading{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:8px;
+}
+
+.step-number{
+    width:40px;
+    height:40px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    flex-shrink:0;
+
+    border-radius:50%;
+
+    background:#2848B8;
+    color:#fff;
+
+    font-size:18px;
+    font-weight:700;
+}
+
+.step-title{
+    font-size:18px;
+    font-weight:700;
+    color:#334155;
+}
+
+.step-description{
+    margin-left:50px;
+    margin-bottom:12px;
+
+    color:#64748B;
+    font-size:14px;
+    font-weight:500;
+}
+@media(max-width:600px){
+
+    .step-number{
+        width:36px;
+        height:36px;
+        font-size:16px;
+    }
+
+    .step-title{
+        font-size:17px;
+    }
+
+    .step-description{
+        margin-left:46px;
+    }
+
 }

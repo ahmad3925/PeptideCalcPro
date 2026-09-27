@@ -500,10 +500,10 @@ document.getElementById("guideLine2").textContent =
     `• ${parts.join(" + ")}`;
 
 document.getElementById("guideLine3").textContent =
-    `✓ Delivers ${readableDose}`;
+    `✓ Peptide Dose ${readableDose}`;
 
 document.getElementById("guideLine4").textContent =
-    `✓ Total injection volume: ${roundedML} mL`;
+    `✓ Volume per dose: ${roundedML} mL`;
 
 document.getElementById("guideLine5").textContent =
     `✓ Use a ${input.syringeUnits} IU syringe`;
